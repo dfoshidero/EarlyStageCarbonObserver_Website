@@ -1,11 +1,11 @@
 .app {
     display: flex;
-    height: 98vh;
+    height: 97vh;
     width: 100%;
 
     &.sidebar-open {
         .main-content {
-            margin-left: 250px;
+            margin-left: 20px;
             /* Main content shifts right when sidebar is open */
         }
     }
@@ -19,7 +19,7 @@
 }
 
 .sidebar {
-    width: 250px;
+    width: 260px;
 }
 
 .main-content {

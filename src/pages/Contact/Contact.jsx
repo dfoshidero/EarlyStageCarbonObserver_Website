@@ -1,13 +1,12 @@
 import React from "react";
-import Layout from "../../components/Layout/Layout";
 
-const AboutPage = () => {
+const Contact = () => {
   return (
-    <Layout>
-      <h1>About Page</h1>
-      <p>This is the about page.</p>
-    </Layout>
+    <div>
+      <h1>Contact Page</h1>
+      <p>This is the contact page.</p>
+    </div>
   );
 };
 
-export default AboutPage;
+export default Contact;

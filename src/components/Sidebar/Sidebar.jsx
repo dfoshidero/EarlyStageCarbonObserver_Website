@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./Sidebar.scss";
 import DomainAddRoundedIcon from "@mui/icons-material/DomainAddRounded";
 import CloseIcon from "@mui/icons-material/Close";
@@ -6,6 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [projects, setProjects] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
@@ -16,6 +18,10 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     const newProjects = [...projects, projectName];
     setProjects(newProjects);
     localStorage.setItem("projects", JSON.stringify(newProjects));
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path ? "active" : "";
   };
 
   return (
@@ -40,16 +46,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           </div>
         </div>
         <div className="sidebar-nav">
-          <a className="sidebar-link" href="/">
+          <a className={`sidebar-link ${isActive("/")}`} href="/">
             ECO
           </a>
-          <a className="sidebar-link" href="/contact">
+          <a className={`sidebar-link ${isActive("/contact")}`} href="/contact">
             Contact
           </a>
-          <a className="sidebar-link" href="/support">
+          <a className={`sidebar-link ${isActive("/support")}`} href="/support">
             Support
           </a>
-
         </div>
         <div className="divider"></div>
         <div className="add-project-container">
@@ -66,7 +71,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             <a
               key={index}
               className="project-link"
-              href={`/project/${project}`}
+              href={`/projects/${project}`}
             >
               {project}
             </a>
