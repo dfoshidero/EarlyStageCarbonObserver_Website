@@ -18,9 +18,14 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
       setAnimateSidebar(true);
       sessionStorage.setItem("sidebarAnimated", "true");
       setTimeout(() => {
-        setAnimateSidebar(false);
         setIsSidebarOpen(true);
-      }, 2000); // Adjust the time for how long the animation should take
+        setTimeout(() => {
+          setIsSidebarOpen(false);
+          setTimeout(() => {
+            setAnimateSidebar(false);
+          }, 1000); // Time for sidebar to fully close
+        }, 1000); // Time for sidebar to fully open
+      }, 1000); // Time to start the animation
     } else {
       setIsSidebarOpen(true);
     }
