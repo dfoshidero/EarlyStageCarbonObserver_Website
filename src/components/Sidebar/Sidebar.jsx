@@ -49,8 +49,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           <a className={`sidebar-link ${isActive("/")}`} href="/">
             ECO
           </a>
-          <a className={`sidebar-link ${isActive("/contact")}`} href="/contact">
-            Contact
+          <a
+            className={`sidebar-link ${isActive("/quickview")}`}
+            href="/quickview"
+          >
+            Insight
           </a>
           <a className={`sidebar-link ${isActive("/support")}`} href="/support">
             Support

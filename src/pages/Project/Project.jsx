@@ -6,7 +6,6 @@ const ProjectPage = () => {
 
   return (
     <div>
-      <h1>Project Page</h1>
       <p>This is the project page for project ID: {id}</p>
       {/* You can add more detailed project information here */}
     </div>

@@ -15,7 +15,7 @@
   height: 100%;
   opacity: 95%;
   border-radius: 20px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   transform: translateX(0);
   overflow: hidden;
 
@@ -30,7 +30,7 @@
   .divider,
   .add-project-container,
   .projects {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 1s ease-in-out;
   }
 
   &.closed .sidebar-header,
