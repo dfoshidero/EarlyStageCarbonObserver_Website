@@ -1,100 +1,222 @@
+.sidebar,
+.sidebar * {
+  -webkit-user-select: none;
+  user-select: none;
+  /* Disables text selection */
+}
+
 .sidebar {
-  width: 15vw;
-  /* Changed from 260px */
-  background-color: #2d2d2d;
-  color: #f0f0f0;
+  color: #2c3e50;
   display: flex;
   flex-direction: column;
+  background-color: #f8f9fa;
+  margin: 10px;
+  width: 100%;
+    height: 100%;
+  opacity: 95%;
+  border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+  overflow: hidden;
+
+  &.closed {
+    transform: translateX(-100%);
+    /* Slide sidebar to the left */
+  }
+
+  .sidebar-header,
+  .sidebar-icon,
+  .sidebar-nav,
+  .divider,
+  .add-project-container,
+  .projects {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &.closed .sidebar-header,
+  &.closed .sidebar-icon,
+  &.closed .sidebar-nav,
+  &.closed .divider,
+  &.closed .add-project-container,
+  &.closed .projects {
+    transform: translateX(-250px);
+    /* Slide child elements to the left */
+  }
 
   .sidebar-header {
-    position: relative;
-    padding: 1vw;
-    /* Changed from 20px */
-    font-size: 1.2em; // Larger font for better readability
-
-    .sr-only {
-      position: absolute;
-      width: 1px; 
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
   }
 
-  .sidebar-nav {
+  .close-sidebar-button {
+    background-color: transparent;
+    margin: 3px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
     display: flex;
-    flex-direction: column;
-    padding: 0.9325vw;
-    /* Changed from 10px */
+    justify-content: center;
+    align-items: center;
 
-    .sidebar-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #27ae60;
+      transform: scale(1.012);
+    }
+
+  }
+
+  .sidebar-icon {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    padding-top: 30px;
+
+    .logo-container {
       background: none;
       border: none;
-      padding: 0.9375vw;
-      /* Changed from 15px */
-      margin: 0.3125vw 0;
-      /* Changed from 5px 0 */
-      color: #ddd; // Slightly lighter color for better contrast
-      cursor: pointer;
-      font-size: 1em; // Increased font size
+      padding: 0;
+      width: 170px;
+      height: 170px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      &:hover {
-        background-color: #3a3a3a;
-        color: #fff;
-      }
-
-      .icon {
-        width: 1.5vw;
-        height: 1.5vw;
+      .logo-image {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
       }
     }
   }
 
-  .sidebar-content {
-    flex-grow: 1;
-    padding: 0.625vw;
+.sidebar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17.5px;
+  padding: 9px;
+  padding-left: 25px;
+  max-width: 200px;
+  justify-content: center;
+}
 
-    .sidebar-link {
-      display: block;
-      padding: 0.4vw;
-      margin: 0.3125vw 0;
-      color: #f0f0f0;
-      text-decoration: none;
-      border-radius: 0.3125vw;
-      font-size: 0.85em;
+.sidebar-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 90px;
+  /* Flex-grow: 1, flex-shrink: 1, flex-basis: 90px */
+  height: 40px;
+  color: #2c3e50;
+  background-color: #e9ecef;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 0.85em;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.1s, transform 0.3s;
 
-      &:hover {
-        background-color: #3a3a3a;
-      }
-    }
+  &:hover {
+    background-color: #27ae60;
+    color: #fff;
+    transform: scale(1.012);
   }
+}
 
   .divider {
-    height: 0.0625vw;
-    /* Changed from 1px */
-    margin: 1.25vw 0;
-    /* Changed from 20px 0 */
-    background-color: #444;
+    height: 1px;
+    margin: 12px 0;
+    background-color: #dee2e6;
   }
 
   .projects {
     flex-grow: 1;
+    padding-left: 25px;
 
     .project-link {
       display: block;
-      padding: 0.4vw;
-      margin: 0.3125vw 0;
-      color: #f0f0f0;
+      width: 180px;
+      padding: 10px;
+      margin: 10px 0;
+      color: #2c3e50;
+      background-color: #e9ecef;
       text-decoration: none;
-      border-radius: 0.3125vw;
-      font-size: 0.85em; // Increased font size
+      border-radius: 8px;
+      font-size: 0.85em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 
       &:hover {
-        background-color: #3a3a3a;
+        background-color: #27ae60;
+        /* Hover background color representing sustainability */
+        color: #fff;
+        transform: scale(1.012);
       }
     }
+  }
+
+  .add-project-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 25px;
+  }
+
+  .add-project-button {
+    background-color: transparent;
+    padding: 6px;
+    margin: 6px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: #27ae60;
+      transform: scale(1.012);
+    }
+  }
+}
+
+.open-sidebar-button {
+  background-color: transparent;
+  margin: 3px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 25%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 25px;
+  left: -50px;
+  /* Initially hidden to the left */
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+
+  &:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.012);
+  }
+
+  &.visible {
+    transition: left 0.8s ease-in-out;
+    left: 25px;
+    /* Move to visible position */
   }
 }
