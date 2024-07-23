@@ -1,48 +1,80 @@
 .app {
-    display: flex;
-    height: 99vh;
-    width: 100%;
-    overflow: hidden;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.9;
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #f8f9fa 1px);
 
-    &.sidebar-open {
-        .main-container {
-            margin-left: 0px;
-            transition: margin-left 0.3s ease-in-out;
-            /* Main area shifts right when sidebar is open */
-        }
+  &.sidebar-open {
+    .main-container {
+      margin-left: 0px;
+      transition: margin-left 0.3s ease-in-out;
+      /* Main area shifts right when sidebar is open */
     }
+  }
 
-    &.sidebar-closed {
-        .main-container {
-            margin-left: -150px;
-            transition: margin-left 0.3s ease-in-out;
-            /* Main area takes full width when sidebar is closed */
-        }
+  &.sidebar-closed {
+    .main-container {
+      margin-left: -250px;
+      transition: margin-left 0.3s ease-in-out;
+      /* Main area takes full width when sidebar is closed */
     }
+  }
 }
 
 .main-container {
-    width: 100%;
+  display: flex;
+  flex: 1; // Taking full height of the remaining space
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 5px;
 }
 
 .sidebar {
-    width: 260px;
-    transition: transform 0.5s ease-in-out; // Ensuring sidebar transitions smoothly
+  width: 260px;
+  transition: transform 0.5s ease-in-out; // Ensuring sidebar transitions smoothly
 }
 
 .header-area {
-    width: 100%;
+  flex-shrink: 0;
+  width: 80%;
+  max-width: 1380px;
+  margin: 0 auto;
+  /* Center content horizontally */
 }
 
 .content-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 80%;
+  max-width: 1380px;
+  margin: 0 auto;
+  /* Center content horizontally */
 }
 
 .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #ffffff;
-    overflow-y: auto;
+  flex-grow: 1;
+  padding: 0 20px;
+  overflow-y: auto;
 }
+
+.footer {
+  text-align: center;
+  small {
+    font-size: 12px;
+    color: #666;
+    font-weight: 100;
+  }
+}
+
+.background-img {
+    position: absolute;
+    bottom: 0;
+    left: 75px;
+    height: 450px; // You can change the height as needed
+    width: auto; // Adjust the width proportionally
+    opacity: 0.8;
+    z-index: -1;
+  }

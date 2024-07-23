@@ -6,19 +6,22 @@
 }
 
 .sidebar {
-  color: #2c3e50;
+  color: #bfc5cc;
   display: flex;
   flex-direction: column;
-  background-color: #f8f9fa;
+  background-color: hsl(210, 17%, 98%);
   margin: 20px;
   width: 100%;
-  height: 98%;
+  height: calc(98% - 20px);  
   opacity: 92.5%;
   border-radius: 20px;
   transition: transform 0.5s ease-in-out;
   transform: translateX(0);
-  overflow: hidden;
 
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+
+  
   &.closed {
     transform: translateX(-100%);
     /* Slide sidebar to the left */
@@ -66,7 +69,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #27ae60;
+      background-color: #39A265;
       transform: scale(1.012);
     }
 
@@ -115,7 +118,7 @@
     /* Flex-grow: 1, flex-shrink: 1, flex-basis: 90px */
     height: 40px;
     color: #2c3e50;
-    background-color: #e9ecef;
+    background-color: #E0E0E0;
     text-decoration: none;
     border-radius: 10px;
     font-size: 0.85em;
@@ -124,12 +127,12 @@
     transition: background-color 0.1s, transform 0.3s;
 
     &.active {
-      background-color: #27ae60;
+      background-color: #39A265;
       color: #fff;
     }
 
     &:hover {
-      background-color: #27ae60;
+      background-color: #39A265;
       color: #fff;
       transform: scale(1.012);
     }
@@ -151,14 +154,14 @@
       padding: 10px;
       margin: 10px 0;
       color: #2c3e50;
-      background-color: #e9ecef;
+      background-color: #E0E0E0;
       text-decoration: none;
       border-radius: 8px;
       font-size: 0.85em;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 
       &:hover {
-        background-color: #27ae60;
+        background-color: #39A265;
         /* Hover background color representing sustainability */
         color: #fff;
         transform: scale(1.012);
@@ -173,23 +176,28 @@
   }
 
   .add-project-button {
-    background-color: transparent;
-    padding: 6px;
-    margin: 6px;
-    width: 40px;
-    height: 40px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: transparent;
+  padding: 6px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &:hover {
-      background-color: #27ae60;
-      transform: scale(1.012);
-    }
+  svg {
+    width: 30px;
+    height: 30px;
   }
+
+  &:hover {
+    background-color: #39A265;
+    transform: scale(1.012);
+  }
+}
+
 }
 
 .open-sidebar-button {
@@ -225,3 +233,12 @@
     /* Move to visible position */
   }
 }
+.sidebar .projects .project-link {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.sidebar .projects .project-link.fade {
+  opacity: 0.5; /* Adjust the opacity level as needed */
+}
+

@@ -38,6 +38,7 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
       }`}
     >
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      
       <div className="main-container">
         <div className="header-area">
           <Header
@@ -50,6 +51,12 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
         </div>
         <div className="content-container">
           <div className="main-content">{children}</div>
+          <footer className="footer">
+            <small>
+              ECO is close, but not perfect. Inspect project specs for accuracy.
+              All rights reserved.
+            </small>
+          </footer>
         </div>
       </div>
     </div>

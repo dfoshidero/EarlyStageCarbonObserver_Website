@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 import "./Sidebar.scss";
-import DomainAddRoundedIcon from "@mui/icons-material/DomainAddRounded";
+import { ReactComponent as NewBuildingIcon } from "../../assets/images/new-building.svg";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -18,6 +19,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     const newProjects = [...projects, projectName];
     setProjects(newProjects);
     localStorage.setItem("projects", JSON.stringify(newProjects));
+    Cookies.set("projectName", projectName); // Set project name in cookies
   };
 
   const isActive = (path) => {
@@ -42,7 +44,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         </div>
         <div className="sidebar-icon">
           <div className="logo-container">
-            <img src="/Logo Full_NBG.png" alt="Logo" className="logo-image" />
+            <img
+              src="/assets/images/logo-full-grey-nbg.svg"
+              alt="Logo"
+              className="logo-image"
+            />
           </div>
         </div>
         <div className="sidebar-nav">
@@ -65,7 +71,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             className="add-project-button"
             onClick={() => addProject(`Project ${projects.length + 1}`)}
           >
-            <DomainAddRoundedIcon style={{ color: "#000", fontSize: "20px" }} />{" "}
+            <NewBuildingIcon style={{ color: "#000", fontSize: "20px" }} />{" "}
             {/* Smaller icon */}
           </button>
         </div>
@@ -73,8 +79,13 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           {projects.map((project, index) => (
             <a
               key={index}
-              className="project-link"
+              className={`project-link ${
+                index === projects.length - 1 && projects.length > 1
+                  ? "fade"
+                  : ""
+              }`}
               href={`/projects/${project}`}
+              onClick={() => Cookies.set("projectName", project)} // Update cookie on project link click
             >
               {project}
             </a>

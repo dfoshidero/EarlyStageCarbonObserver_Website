@@ -1,102 +1,100 @@
 .header-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2c3e50;
+  padding: 10px 20px;
+  margin: 20px 20px;
+  width: calc(100% - 40px);
+  height: 60px;
+  box-sizing: border-box;
+
+  h1 {
+    margin: 0;
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #333;
+    padding: 0 10px;
+
+
+  -webkit-user-select: none;
+  user-select: none;
+
+  }
+
+  .additional-info {
+    margin-left: auto;
+    font-size: 1em;
     color: #2c3e50;
-    padding: 10px 20px;
-    margin: 20px 0px;
-    width: calc(100% - 40px);
-    height: 60px; // Fixed height for the header
-    box-sizing: border-box; // Include padding and border in the element's total width and height
+  }
 
-    h1 {
-        margin: 0;
-        font-size: 1.25em;
-        font-weight: 600;
-        line-height: 1.2;
-        color: #333;
-        padding: 5px 0;
+  .right-section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .share-project-button {
+      display: flex;
+      align-items: center;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-right: 20px;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      span {
+        margin-left: 5px;
+      }
     }
 
-    .additional-info {
-        margin-left: auto;
-        margin-right: 20px;
-        font-size: 1em;
-        color: #2c3e50;
-    }
+    .user-profile {
+      position: relative;
 
-    .right-section {
+      .user-profile-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
         display: flex;
         align-items: center;
-        flex-wrap: wrap; // Allow wrapping to maintain header height
+        color: #2c3e50;
+      }
 
-        .share-project-button {
-            display: flex;
-            align-items: center;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 5px 10px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-right: 20px;
+      .user-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        min-width: 150px;
 
-            &:hover {
-                background-color: #0056b3;
-            }
+        a {
+          display: block;
+          padding: 10px;
+          color: #2c3e50;
+          text-decoration: none;
+          font-size: 0.9em;
 
-            span {
-                margin-left: 5px;
-            }
+          &:hover {
+            background-color: #e9ecef;
+          }
         }
+      }
 
-        .user-profile {
-            position: relative;
-
-            .user-profile-button {
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                font-size: 1em;
-                color: #2c3e50;
-
-                span {
-                    margin-left: 5px;
-                    font-size: 1em; // Ensure the text size matches the icon size for better alignment
-                }
-            }
-
-            .user-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background-color: #fff;
-                border: 1px solid #ced4da;
-                border-radius: 4px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-                min-width: 150px;
-
-                a {
-                    display: block;
-                    padding: 10px;
-                    color: #2c3e50;
-                    text-decoration: none;
-                    font-size: 0.9em;
-
-                    &:hover {
-                        background-color: #e9ecef;
-                    }
-                }
-            }
-
-            &:hover .user-menu {
-                display: block;
-            }
-        }
+      &:hover .user-menu {
+        display: block;
+      }
     }
+  }
 }
