@@ -46,6 +46,7 @@
 }
 
 .content-container {
+  height: 100%;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -61,8 +62,13 @@
 }
 
 .footer {
+  position: fixed; /* Fix the footer to the bottom of the viewport */
+  bottom: 0; /* Align to the bottom */
+  left: 50%; /* Center align */
+  transform: translateX(-50%); /* Adjust for center alignment */
   text-align: center;
-  margin-bottom: 15px;
+  width: 100%; /* Ensure it takes full width */
+  padding: 10px 0; /* Optional: Add padding for spacing */
 }
 
 .footer small {

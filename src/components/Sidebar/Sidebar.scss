@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: top;
   padding-top: 15px;
-  min-height: 1000px;
 }
 
 .sidebar,
@@ -22,8 +21,8 @@
   box-shadow: 5px 5px 10px #d3d3d3, -5px -5px 10px #ededed;
   margin: 20px;
   width: 250px;
-  height: 96%;
-  
+  height: 94%;
+  min-height: 768px;
   opacity: 0.925;
   border-radius: 20px;
   transition: transform 0.5s ease-in-out;
@@ -78,9 +77,8 @@
     display: flex;
     justify-content: center;
     padding: 10px;
-    padding-top: 20px;
-    margin: 50px;
     border-bottom: rgba(44, 62, 80, 0.2) 1px solid;
+    margin-bottom: 8%;
 
     .logo-container {
       width: 145px;
@@ -244,13 +242,10 @@
 
   .sidebar-acknowledgements {
     padding: 20px;
-    
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
-    margin-top: -100px;
 
     h2 {
       margin-bottom: 15px;

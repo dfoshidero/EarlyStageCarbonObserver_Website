@@ -62,8 +62,8 @@ const HomePage = () => {
               and natural language feature extraction, ECO translates initial
               design descriptions into predictions of embodied carbon
               footprints.
-            </p>
-            <p>
+              <br/>
+              <br/>
               This tool provides architects and designers with immediate
               feedback on the environmental implications of their design
               choices, promoting iteration towards sustainable practices.

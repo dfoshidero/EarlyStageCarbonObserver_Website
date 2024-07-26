@@ -60,15 +60,7 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
       <div className="main-container">
-        <div className="header-area">
-          <Header
-            isSidebarOpen={isSidebarOpen}
-            pageTitle={pageTitle}
-            additionalInfo={additionalInfo}
-            userName="User Name"
-            onToggleSidebar={toggleSidebar}
-          />
-        </div>
+
         <div className="content-container">
           <div className="main-content">{children}</div>
           <footer className="footer">

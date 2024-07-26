@@ -23,15 +23,15 @@ const Wrapper = styled.div`
 
   /* Media queries for responsive font sizes */
   @media (min-width: 576px) and (min-height: 576px) {
-    font-size: 36px; /* 36px at 576px */
+    font-size: 30px; /* 36px at 576px */
   }
 
   @media (min-width: 768px) and (min-height: 768px) {
-    font-size: 40px; /* 40px at 768px */
+    font-size: 36px; /* 40px at 768px */
   }
 
   @media (min-width: 992px) and (min-height: 992px) {
-    font-size: 45px; /* 45px at 992px */
+    font-size: 40px; /* 45px at 992px */
   }
 
   @media (min-width: 1200px) and (min-height: 1200px) {
