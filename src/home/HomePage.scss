@@ -5,9 +5,9 @@
   flex-direction: column;
   font-family: "Poppins", sans-serif;
   border-radius: 20px;
-  overflow:visible;
+  overflow: visible;
   color: #2c3e50;
-  height: 95vh;
+  height: 90vh;
 
   .background-image {
     position: absolute;
@@ -54,15 +54,15 @@
     width: 70%;
     z-index: 1;
 
-  font-size: 60px;
+    font-size: 60px;
 
-@media (min-width: 992px) and (min-height: 992px) {
-  font-size: 75px;
-}
+    @media (min-width: 992px) and (min-height: 992px) {
+      font-size: 75px;
+    }
 
-@media (min-width: 1200px) and (min-height: 1200px) {
-  font-size: 90px;
-}
+    @media (min-width: 1200px) and (min-height: 1200px) {
+      font-size: 90px;
+    }
   }
 
   .eco-text {
@@ -128,6 +128,18 @@
     flex-direction: column;
 
     h3 {
+      @media (min-width: 768px) and (min-height: 768px) {
+        font-size: 15px;
+      }
+
+      @media (min-width: 992px) and (min-height: 992px) {
+        font-size: 18px;
+      }
+
+      @media (min-width: 1200px) and (min-height: 1200px) {
+        font-size: 20px;
+      }
+
       top: 10px; // Adjust the top value as needed
       left: 20px;
       margin: 0;
@@ -140,17 +152,15 @@
 
       /* Media queries for responsive font sizes */
 
-@media (min-width: 768px) and (min-height: 768px) {
-  font-size: 15px;
-}
+      font-size: 13px;
 
-@media (min-width: 992px) and (min-height: 992px) {
-  font-size: 18px;
-}
+      @media (min-width: 992px) and (min-height: 992px) {
+        font-size: 15px;
+      }
 
-@media (min-width: 1200px) and (min-height: 1200px) {
-  font-size: 20px;
-}
+      @media (min-width: 1200px) and (min-height: 1200px) {
+        font-size: 18px;
+      }
     }
   }
 
@@ -181,16 +191,14 @@
         border: 1px solid #ccc;
         border-radius: 10px;
 
-        @media (min-width: 768px) and (min-height: 768px) {
+        font-size: 12px;
+
+        @media (min-width: 992px) and (min-height: 992px) {
           font-size: 15px;
         }
 
-        @media (min-width: 992px) and (min-height: 992px) {
-          font-size: 28px;
-        }
-
         @media (min-width: 1200px) and (min-height: 1200px) {
-          font-size: 20px;
+          font-size: 18px;
         }
       }
 
@@ -237,9 +245,7 @@
     background-color: #f0f0f0;
   }
 
-  @media (min-width: 768px) and (min-height: 768px) {
     font-size: 22px;
-  }
 
   @media (min-width: 992px) and (min-height: 992px) {
     font-size: 24px;

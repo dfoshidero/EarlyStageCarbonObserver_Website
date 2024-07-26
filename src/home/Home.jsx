@@ -1,16 +1,16 @@
 import React from "react";
 import AnimatedText from "../components/AnimatedText/AnimatedText";
-import { FaArrowRight, FaExternalLinkAlt } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import "./HomePage.scss";
 
 
 const examples = [
   {
-    text: 'A triple-glazed curtain wall facade with pile foundations and steel supports, covering 4000 square metres."',
+    text: 'A triple-glazed curtain wall facade with pile foundations and steel supports."',
     carbon: "3102.74 kgCO2e/sq.m",
   },
   {
-    text: 'A timber-framed building with a green roof and sheep\'s wool insulation."',
+    text: 'A timber-framed house with a green roof and sheep\'s wool insulation."',
     carbon: "230.43 kgCO2e/sq.m",
   },
   {
@@ -18,7 +18,7 @@ const examples = [
     carbon: "1528.82 kgCO2e/sq.m",
   },
   {
-    text: 'A prefabricated modular building with steel framing and SIP panels, for quick assembly. With fiber cement and composite materials."',
+    text: 'A prefabricated modular building with steel framing and SIP panels, for quick assembly."',
     carbon: "2385.99 kgCO2e/sq.m",
   },
   {
