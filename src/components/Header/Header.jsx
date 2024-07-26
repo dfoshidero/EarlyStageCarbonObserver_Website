@@ -1,14 +1,17 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.scss";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ShareIcon from "@mui/icons-material/Share";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
-const Header = ({ isSidebarOpen, pageTitle, additionalInfo, userName }) => {
+const Header = ({ isSidebarOpen, pageTitle, additionalInfo }) => {
   const location = useLocation();
-
-  // Check if the current path is a project page
+  const navigate = useNavigate();
   const isProjectPage = location.pathname.startsWith("/projects");
+
+  const handleHelpClick = () => {
+    navigate("/support");
+  };
 
   return (
     <header className={`header-bar ${isSidebarOpen ? "" : "full-width"}`}>
@@ -20,18 +23,11 @@ const Header = ({ isSidebarOpen, pageTitle, additionalInfo, userName }) => {
         {isProjectPage && (
           <button className="share-project-button">
             <ShareIcon style={{ fontSize: "24px" }} />
-            <span>Share Project</span>
           </button>
         )}
-        <div className="user-profile">
-          <button className="user-profile-button">
-            <AccountCircleIcon style={{ fontSize: "32px" }} />
-          </button>
-          <div className="user-menu">
-            <a href="/profile">Profile</a>
-            <a href="/logout">Logout</a>
-          </div>
-        </div>
+        <button className="help-button" onClick={handleHelpClick}>
+          <HelpOutlineIcon style={{ fontSize: "24px" }} />
+        </button>
       </div>
     </header>
   );

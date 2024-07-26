@@ -1,49 +1,52 @@
+.sidebar-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  padding-top: 15px;
+}
+
 .sidebar,
 .sidebar * {
   -webkit-user-select: none;
   user-select: none;
-  /* Disables text selection */
+  
 }
 
 .sidebar {
-  color: #bfc5cc;
+  color: #2c3e50;
   display: flex;
   flex-direction: column;
-  background-color: hsl(210, 17%, 98%);
+  background: #ffffff;
+  box-shadow: 5px 5px 10px #d3d3d3, -5px -5px 10px #ededed;
   margin: 20px;
-  width: 100%;
-  height: calc(98% - 20px);  
-  opacity: 92.5%;
+  width: 250px;
+  height: 1200px;
+  min-height: 800px;
+  opacity: 0.925;
   border-radius: 20px;
   transition: transform 0.5s ease-in-out;
   transform: translateX(0);
-
   overflow: hidden;
   font-family: "Poppins", sans-serif;
-
   
+
   &.closed {
     transform: translateX(-100%);
-    /* Slide sidebar to the left */
   }
 
   .sidebar-header,
   .sidebar-icon,
   .sidebar-nav,
-  .divider,
-  .add-project-container,
-  .projects {
-    transition: transform 1s ease-in-out;
+  .sidebar-footer {
+    transition: transform 0.6s ease-in-out;
   }
 
   &.closed .sidebar-header,
   &.closed .sidebar-icon,
   &.closed .sidebar-nav,
-  &.closed .divider,
-  &.closed .add-project-container,
-  &.closed .projects {
+  &.closed .sidebar-footer {
     transform: translateX(-250px);
-    /* Slide child elements to the left */
   }
 
   .sidebar-header {
@@ -64,29 +67,23 @@
     justify-content: center;
     align-items: center;
 
-    background: none;
-    border: none;
-    cursor: pointer;
-
     &:hover {
-      background-color: #39A265;
+      background-color: #39a265;
       transform: scale(1.012);
     }
-
   }
 
   .sidebar-icon {
     display: flex;
     justify-content: center;
     padding: 10px;
-    padding-top: 30px;
+    padding-top: 20px;
+    margin: 50px;
+    border-bottom: rgba(44, 62, 80, 0.2) 1px solid;
 
     .logo-container {
-      background: none;
-      border: none;
-      padding: 0;
-      width: 170px;
-      height: 170px;
+      width: 145px;
+      height: 145px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -115,89 +112,204 @@
     justify-content: center;
     align-items: center;
     flex: 1 1 90px;
-    /* Flex-grow: 1, flex-shrink: 1, flex-basis: 90px */
     height: 40px;
     color: #2c3e50;
-    background-color: #E0E0E0;
+    background-color: transparent;
     text-decoration: none;
     border-radius: 10px;
     font-size: 0.85em;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: background-color 0.1s, transform 0.3s;
 
     &.active {
-      background-color: #39A265;
+      background-color: #39a265;
       color: #fff;
     }
 
     &:hover {
-      background-color: #39A265;
+      background-color: #39a265;
       color: #fff;
       transform: scale(1.012);
     }
   }
 
-  .divider {
-    height: 1px;
-    margin: 12px 0;
-    background-color: #dee2e6;
-  }
+  .sidebar-socials {
+    padding: 20px;
+    text-align: center;
 
-  .projects {
-    flex-grow: 1;
-    padding-left: 30px;
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
 
-    .project-link {
-      display: block;
-      width: 180px;
-      padding: 10px;
-      margin: 10px 0;
-      color: #2c3e50;
-      background-color: #E0E0E0;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.85em;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      .icon-content {
+        margin: 0 5px; /* Adjusted margin to fit within 80% width */
+        position: relative;
 
-      &:hover {
-        background-color: #39A265;
-        /* Hover background color representing sustainability */
-        color: #fff;
-        transform: scale(1.012);
+        a {
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40px; /* Smaller size */
+          height: 40px; /* Smaller size */
+          border-radius: 50%;
+          color: #4d4d4d;
+          background-color: #fff;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+            color: white;
+          }
+
+          svg {
+            position: relative;
+            z-index: 1;
+            width: 20px; /* Smaller icon size */
+            height: 20px; /* Smaller icon size */
+          }
+
+          .filled {
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: #000;
+            transition: all 0.3s ease-in-out;
+          }
+
+          &[data-social="linkedin"] .filled,
+          &[data-social="linkedin"] ~ .tooltip {
+            background-color: #0274b3;
+          }
+
+          &[data-social="github"] .filled,
+          &[data-social="github"] ~ .tooltip {
+            background-color: #24262a;
+          }
+
+          &[data-social="instagram"] .filled,
+          &[data-social="instagram"] ~ .tooltip {
+            background: linear-gradient(
+              45deg,
+              #405de6,
+              #5b51db,
+              #b33ab4,
+              #c135b4,
+              #e1306c,
+              #fd1f1f
+            );
+          }
+
+          &[data-social="youtube"] .filled,
+          &[data-social="youtube"] ~ .tooltip {
+            background-color: #ff0000;
+          }
+
+          &:hover .filled {
+            height: 100%;
+          }
+        }
+
+        .tooltip {
+          position: absolute;
+          top: -30px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: #fff;
+          padding: 6px 10px;
+          border-radius: 5px;
+          opacity: 0;
+          visibility: hidden;
+          font-size: 10px; /* Smaller tooltip text */
+          transition: all 0.3s ease;
+
+          &:hover {
+            opacity: 1;
+            visibility: visible;
+            top: -50px;
+          }
+        }
       }
     }
   }
 
-  .add-project-container {
+  .sidebar-acknowledgements {
+    padding: 20px;
+    
+    text-align: center;
     display: flex;
-    justify-content: flex-end;
-    padding-right: 25px;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-top: -100px;
+
+    h2 {
+      margin-bottom: 15px;
+      font-size: 0.85em;
+      color: #2c3e50;
+    }
+
+    .acknowledgement-single {
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 0.85em;
+        color: #2c3e50;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 5px;
+          font-size: 0.8em;
+          color: #2c3e50;
+        }
+      }
+    }
+
+    .acknowledgement-section {
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
-  .add-project-button {
-  background-color: transparent;
-  padding: 6px;
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
 
-  svg {
-    width: 30px;
-    height: 30px;
+    .github-link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.8em;
+      color: #2c3e50;
+      text-decoration: none;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        color: #39a265;
+      }
+    }
   }
-
-  &:hover {
-    background-color: #39A265;
-    transform: scale(1.012);
-  }
-}
-
 }
 
 .open-sidebar-button {
@@ -211,14 +323,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background: none;
-  border: none;
-  cursor: pointer;
   position: fixed;
   top: 25px;
   left: -50px;
-  /* Initially hidden to the left */
   transition: left 0.3s ease-in-out;
   z-index: 1000;
 
@@ -228,17 +335,29 @@
   }
 
   &.visible {
-    transition: left 0.8s ease-in-out;
     left: 25px;
-    /* Move to visible position */
+    transition: left 0.8s ease-in-out;
   }
 }
-.sidebar .projects .project-link {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
+
+.copyright {
+  font-size: 0.7em;
+  color: #2c3e50;
+  margin-top: -18px;
+  padding-bottom: 15px;
+  text-align: center; /* Center the text */
+  z-index: 3;
 }
 
-.sidebar .projects .project-link.fade {
-  opacity: 0.5; /* Adjust the opacity level as needed */
+.copyright a {
+  color: #2c3e50;
+  text-decoration: none;
+  display: block; /* Ensure the link starts on a new line */
+  margin-top: 5px; /* Add some space above the link */
 }
 
+.copyright a:hover {
+  text-decoration: underline; /* Add an underline on hover for better visibility */
+  color: #39a265; /* Change the color on hover */
+  cursor: pointer;
+}

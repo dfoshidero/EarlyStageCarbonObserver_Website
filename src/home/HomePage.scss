@@ -3,22 +3,20 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  height: 100%;
   font-family: "Poppins", sans-serif;
-  background-color: hsl(210, 17%, 98%);
   border-radius: 20px;
   overflow: hidden;
   color: #2c3e50;
 
   .background-image {
     position: absolute;
-    top: -50px;
-    right: -75px;
-    border-radius: 50%;
+    top: -10px;
+    right: -4px;
     box-shadow: 0 0 20px 20px white inset;
-    height: 300px;
+    height: 400px;
     width: auto;
-    opacity: 0.25;
+    opacity: 0.5;
+    z-index: 0;
   }
 }
 
@@ -54,6 +52,7 @@
     white-space: pre-wrap;
     overflow-wrap: break-word;
     width: 70%;
+    z-index: 1;
   }
 
   .eco-text {
@@ -72,158 +71,96 @@
     justify-content: center;
     padding-bottom: 30px;
     padding-left: 55px;
+    z-index: 1;
   }
 }
 
-.carousel-container {
+.animated-text-container {
   width: calc(100% - 40px);
   padding: 20px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
 
-  .slick-track {
-    height: 100%;
-    display: flex !important;
-    align-items: center;
+.description-contact {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  gap: 20px;
+  bottom: 0;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  border-top: #2c3e50 solid 2px;
+
+  .project-description,
+  .contact-form {
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative; // Add position relative to parent
   }
 
-  .slick-slide {
-    height: inherit !important;
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-    width: 500px;
+  .project-description {
+    flex: 3;
 
-    .example {
-      position: relative;
-      box-sizing: border-box;
-      padding: 50px;
+    h3 {
+      position: absolute; // Position absolute for fixed position
+      top: 20px; // Adjust the top value as needed
+      left: 20px;
+      margin: 0;
+    }
+
+    .description-text {
+      font-size: 1em;
       color: #2c3e50;
-      border-radius: 20px;
-      height: 300px;
-      background-color: #e0e0e0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-
-      &:before {
-        content: "";
-        background: url("../assets/images/right-quote.svg") no-repeat;
-        background-size: 80px 80px;
-        position: absolute;
-        bottom: 10px;
-        right: 20px;
-        width: 80px;
-        height: 80px;
-        opacity: 0.15;
-      }
-
-      .text {
-        text-align: left;
-        font-size: 1em;
-        line-height: 1.4;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 47.5px;
-      }
-
-      .carbon {
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 7.5px;
-        position: absolute;
-        bottom: 20px;
-        left: 40px;
-        border: 2px solid #39a265;
-        border-radius: 15px;
-        height: 35px;
-        width: auto;
-        padding-right: 10px;
-
-        .response-logo {
-          height: 33px;
-          border-right: 2px dotted #39a265;
-        }
-
-        .carbon-text {
-          display: block;
-        }
-      }
+      text-align: left;
+      margin-top: 50px; // Adjust margin-top to provide space for h3
     }
   }
 
-  .description-contact {
-    display: flex;
-    align-items: stretch;
-    margin-top: 20px;
-    width: 100%;
-    gap: 20px;
+  .contact-form {
+    flex: 1;
 
-    .project-description,
-    .contact-form {
-      padding: 20px;
-      background-color: #e0e0e0;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin-top: 10px;
-      margin-bottom: 10px;
-      position: relative; // Add position relative to parent
+    h3 {
+      position: absolute; // Position absolute for fixed position
+      top: 20px; // Adjust the top value as needed
+      left: 20px;
+      margin: 0;
     }
 
-    .project-description {
-      flex: 3;
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 50px; // Adjust margin-top to provide space for h3
 
-      h3 {
-        position: absolute; // Position absolute for fixed position
-        top: 20px; // Adjust the top value as needed
-        left: 20px;
-        margin: 0;
+      input,
+      textarea {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8em;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
       }
 
-      .description-text {
-        font-size: 1em;
-        color: #2c3e50;
-        text-align: left;
-        margin-top: 50px; // Adjust margin-top to provide space for h3
-      }
-    }
+      button {
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        background-color: #39a265;
+        color: white;
+        cursor: pointer;
 
-    .contact-form {
-      flex: 1;
-
-      h3 {
-        position: absolute; // Position absolute for fixed position
-        top: 20px; // Adjust the top value as needed
-        left: 20px;
-        margin: 0;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-        margin-top: 50px; // Adjust margin-top to provide space for h3
-
-        input,
-        textarea {
-          font-family: "Poppins", sans-serif;
-          font-size: 0.8em;
-          margin-bottom: 10px;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 10px;
-        }
-
-        button {
-          padding: 10px;
-          border: none;
-          border-radius: 10px;
-          background-color: #39a265;
-          color: white;
-          cursor: pointer;
-
-          &:hover {
-            background-color: #2c774b;
-          }
+        &:hover {
+          background-color: #2c774b;
         }
       }
     }
@@ -278,3 +215,4 @@
     margin-bottom: 2px;
   }
 }
+

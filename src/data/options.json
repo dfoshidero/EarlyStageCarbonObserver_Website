@@ -1,0 +1,37 @@
+{
+  "materials": {
+    "substructure": {
+      "piles": ["Reinforced Concrete", "Steel", "Other"],
+      "pileCaps": ["Reinforced Concrete", "Other"],
+      "cappingBeams": ["Reinforced Concrete", "Foamglass", "Other"],
+      "raftFoundation": ["Reinforced Concrete", "Other"],
+      "basementWalls": ["Reinforced Concrete", "Other"],
+      "floorSlab": ["Reinforced Concrete", "Beam and Block", "Other"],
+      "groundInsulation": ["XPS", "EPS", "Glass Mineral Wool", "Other"]
+    },
+    "structure": {
+      "coreStructure": ["Precast Concrete", "CLT", "Other", "Reinforced Concrete"],
+      "columns": ["Reinforced Concrete", "Other", "Iron (existing buildings)", "Glulam", "Steel", "Precast Concrete"],
+      "beams": ["Steel", "Precast Concrete", "Iron (existing buildings)", "Other", "Glulam", "Reinforced Concrete"],
+      "secondaryBeams": ["Iron (existing buildings)", "Reinforced Concrete", "Other", "Steel", "Glulam", "Precast Concrete"],
+      "joistedFloors": ["Other", "Timber Joists (Domestic)", "JJI Engineered Joists", "Timber Joists (Office)"]
+    },
+    "external": {
+      "roof": ["Precast Concrete", "Other", "Timber Cassette", "Timber Pitch Roof", "Reinforced Concrete", "Metal Deck", "CLT", "Steel Concrete Composite"],
+      "roofInsulation": ["Other", "Expanded Perlite", "Sheeps wool", "Vacuum Insulation", "PIR", "Rockwool", "Glass mineral wool", "EPS", "Cellulose, loose fill", "XPS", "Woodfibre", "Expanded Vermiculite"],
+      "roofFinishes": ["Slate tile", "Asphalt (Polymer modified)", "Bitumous Sheet", "Asphalt (Mastic)", "Zinc Standing Seam", "Aluminium", "Other", "Fibre cement tile", "Ceramic tile", "Green Roof", "Roofing membrane (PVC)"],
+      "facade": ["Timber Cassette Panel with Lime Render", "Curtain Walling", "SFS with Granite", "Party Wall Blockwork", "SFS with Zinc Cladding", "Party Wall Brick", "Blockwork with Timber", "Blockwork with Brick", "Timber SIPs with Brick", "Other", "Blockwork with render", "SFS with Ceramic Tiles", "SFS with Limestone", "Timber Cassette Panel with Cement Render", "SFS with Aluminium Cladding", "Load Bearing Precast Concrete with Brick Slips", "Solid Brick, single leaf", "Load Bearing Precast Concrete Panel", "Timber Cassette Panel with Larch Cladding", "Party Wall Timber Cassette", "Timber Cassette Panel with brick", "SFS with Brick"],
+      "wallInsulation": ["PIR", "EPS", "Other", "Rockwool", "XPS", "Expanded Perlite", "Glass mineral wool", "Cellulose, loose fill", "Vacuum Insulation", "Sheeps wool", "Expanded Vermiculite", "Woodfibre"],
+      "glazing": ["Other", "Triple Glazing", "Single Glazing", "Double Glazing"],
+      "windowFrames": ["uPVC", "Other", "Steel (single glazed)", "Aluminium", "Solid softwood timber frame", "Al/Timber Composite"]
+    },
+    "internal": {
+      "partitions": ["Plasterboard // Steel Studs", "Plasterboard // Timber Studs", "Plywood // Timber Studs", "Other", "CLT", "Blockwork"],
+      "ceilings": ["Plasterboard", "Other", "Steel grid system", "Exposed Soffit", "Suspended plasterboard", "Steel tile with acoustic pad", "Steel tile"],
+      "floors": ["Carpet", "Vinyl", "Screed", "Solid timber floorboards", "Stoneware tile", "Earthenware tile", "Other", "Raised floor", "Terrazzo"],
+      "services": ["Medium", "High", "Low", "Other"]
+    }
+  },
+  "sectors": ["Non-residential", "Residential"],
+  "subSectors": ["Small Flat/Maisonette", "Single Family House", "Low-Rise Apartments", "Mid-Rise Apartments", "High-Rise Apartments/Hotels"]
+}

@@ -2,46 +2,47 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
-  opacity: 0.9;
-  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #f8f9fa 1px);
+  overflow-y: auto;
+  background-color: #ffffff;
+  position: relative; /* Add relative positioning */
+}
 
-  &.sidebar-open {
-    .main-container {
-      margin-left: 0px;
-      transition: margin-left 0.3s ease-in-out;
-      /* Main area shifts right when sidebar is open */
-    }
-  }
+.app.sidebar-open .main-container {
+  margin-left: 0px;
+  transition: margin-left 0.3s ease-in-out;
+}
 
-  &.sidebar-closed {
-    .main-container {
-      margin-left: -250px;
-      transition: margin-left 0.3s ease-in-out;
-      /* Main area takes full width when sidebar is closed */
-    }
-  }
+.app.sidebar-closed .main-container {
+  margin-left: -250px;
+  transition: margin-left 0.3s ease-in-out;
 }
 
 .main-container {
   display: flex;
-  flex: 1; // Taking full height of the remaining space
+  flex: 1;
   flex-direction: column;
   width: 100%;
   padding-bottom: 5px;
 }
 
+.background {
+  position: absolute;
+  z-index: 0; /* Ensure it is behind the other content */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
 .sidebar {
   width: 260px;
-  transition: transform 0.5s ease-in-out; // Ensuring sidebar transitions smoothly
+  transition: transform 0.5s ease-in-out;
 }
 
 .header-area {
   flex-shrink: 0;
   width: 80%;
-  max-width: 1380px;
+  max-width: 1200px;
+  min-width: 1096px; /* Set the minimum width */
   margin: 0 auto;
-  /* Center content horizontally */
+  z-index: 1;
 }
 
 .content-container {
@@ -49,32 +50,36 @@
   flex: 1;
   flex-direction: column;
   width: 80%;
-  max-width: 1380px;
+  max-width: 1200px;
+  min-width: 1096px; /* Set the minimum width */
   margin: 0 auto;
-  /* Center content horizontally */
 }
 
 .main-content {
   flex-grow: 1;
   padding: 0 20px;
-  overflow-y: auto;
 }
 
 .footer {
   text-align: center;
-  small {
-    font-size: 12px;
-    color: #666;
-    font-weight: 100;
-  }
+  margin-bottom: 15px;
 }
 
-.background-img {
-    position: absolute;
-    bottom: 0;
-    left: 75px;
-    height: 450px; // You can change the height as needed
-    width: auto; // Adjust the width proportionally
-    opacity: 0.8;
-    z-index: -1;
-  }
+.footer small {
+  font-size: 12px;
+  color: #666;
+  font-weight: 100;
+}
+
+.app::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.app::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* Thumb color */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.app::-webkit-scrollbar-track {
+  background: transparent; /* Track color */
+}

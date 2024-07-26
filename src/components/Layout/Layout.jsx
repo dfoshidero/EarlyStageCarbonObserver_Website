@@ -7,8 +7,19 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [animateSidebar, setAnimateSidebar] = useState(false);
 
+  const minWidth = 1104; // Minimum width for the layout
+  const threshold = 500; // Close the sidebar 50px before the minWidth
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const checkScreenWidth = () => {
+    if (window.innerWidth < minWidth + threshold) {
+      setIsSidebarOpen(false);
+    } else {
+      setIsSidebarOpen(true);
+    }
   };
 
   useEffect(() => {
@@ -27,8 +38,16 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
         }, 1000); // Time for sidebar to fully open
       }, 1000); // Time to start the animation
     } else {
-      setIsSidebarOpen(true);
+      checkScreenWidth(); // Check initial screen width
     }
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkScreenWidth);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", checkScreenWidth);
+    };
   }, []);
 
   return (
@@ -37,8 +56,9 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
         animateSidebar ? "animate-sidebar" : ""
       }`}
     >
+      <div className="background" />
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      
+
       <div className="main-container">
         <div className="header-area">
           <Header
@@ -53,8 +73,7 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
           <div className="main-content">{children}</div>
           <footer className="footer">
             <small>
-              ECO is close, but not perfect. Inspect project specs for accuracy.
-              All rights reserved.
+              ECO is close, but not perfect. Inspect project details for accuracy.
             </small>
           </footer>
         </div>
