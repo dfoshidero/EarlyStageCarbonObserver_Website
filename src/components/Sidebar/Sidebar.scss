@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: top;
   padding-top: 15px;
+  min-height: 1000px;
 }
 
 .sidebar,
@@ -21,8 +22,8 @@
   box-shadow: 5px 5px 10px #d3d3d3, -5px -5px 10px #ededed;
   margin: 20px;
   width: 250px;
-  height: 1200px;
-  min-height: 800px;
+  height: 96%;
+  
   opacity: 0.925;
   border-radius: 20px;
   transition: transform 0.5s ease-in-out;

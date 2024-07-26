@@ -30,6 +30,7 @@ const examples = [
 const HomePage = () => {
   return (
     <div className="home-page">
+
       <header className="header">
         <h1 className="title">
           HEY <span className="eco-text">ECO</span>
@@ -42,10 +43,13 @@ const HomePage = () => {
           </a>
         </div>
       </header>
-      <div>
+
+      <div className="middle">
         <section className="animated-text-container">
           <AnimatedText examples={examples} />
         </section>
+      </div>
+
         <div className="description-contact">
           <div className="project-description">
             <h3>About</h3>
@@ -78,7 +82,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
