@@ -1,12 +1,134 @@
-.insight-page {
-  position: relative;
+.quick-view {
   display: flex;
-  width: 100%;
-  flex-direction: column;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   font-family: "Poppins", sans-serif;
-  background-color: hsl(210, 17%, 98%);
-  border-radius: 20px;
-  overflow: hidden;
   color: #2c3e50;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.content-wrapper {
+  width: 60%;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.greeting-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+.greeting {
+  font-size: 24px;
+  margin: 0;
+}
+
+.instruction {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.textarea-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.description-textarea {
+  width: 100%;
+  height: 150px;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  resize: none;
+  box-shadow:  20px 20px 34px #f0f0f0,
+             -20px -20px 34px #ffffff;
+}
+
+.predict-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.1s, transform 0.3s;
+
+  &:hover {
+      background-color: #39a265;
+      color: #fff;
+      transform: scale(1.012);
+    }
+}
+
+.prediction-result {
+  margin-top: 20px;
+  text-align: left;
+  background: #fafafa;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-result h4 {
+  margin-bottom: 10px;
+}
+
+.prediction-result pre {
+  font-size: 18px;
+}
+
+.examples {
+  margin-top: 30px;
+  text-align: left;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease;
+  opacity: 0;
+}
+
+.examples.show {
+  max-height: 200px; /* Adjust based on the content height */
+  opacity: 1;
+}
+
+.examples h4 {
+  margin-bottom: 10px;
+}
+
+.example-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.example-item {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s;
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.example-item:hover {
+  background-color: #e0e0e0;
 }

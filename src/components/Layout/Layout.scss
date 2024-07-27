@@ -17,6 +17,17 @@
   transition: margin-left 0.3s ease-in-out;
 }
 
+.app.sidebar-open .footer {
+  margin-left: 125px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.app.sidebar-closed .footer {
+  margin-left: 12.5px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+
 .main-container {
   display: flex;
   flex: 1;
