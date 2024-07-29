@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { useNavigate } from "react-router-dom";
 import { extract, predict } from "../../utils/modelapi";
 import EcoAnimatedText from "../../components/AnimatedText/EcoAnimatedText";
 import "./InsightPage.scss";
@@ -11,11 +11,10 @@ const QuickView = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [randomExamples, setRandomExamples] = useState([]);
-  const [showTooltip, setShowTooltip] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState("");
   const [extractedData, setExtractedData] = useState({});
 
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate();
 
   const placeholders = [
     "ECO loooves to help you predict your carbon! 🌱",
@@ -48,7 +47,7 @@ const QuickView = () => {
 
   const handlePredict = async () => {
     setPrediction(null);
-    setShowTooltip(false);
+    setTooltipMessage("");
     setIsLoading(true);
     try {
       const trimmedDescription = String(description).trim();
@@ -57,8 +56,8 @@ const QuickView = () => {
         const randomTooltip =
           "Please provide a description so I can make a prediction! ✏️";
         setTooltipMessage(randomTooltip);
-        setShowTooltip(true);
         setIsLoading(false);
+        console.log("Tooltip message set:", randomTooltip);
         return;
       }
 
@@ -74,7 +73,7 @@ const QuickView = () => {
         const randomTooltip =
           tooltips[Math.floor(Math.random() * tooltips.length)];
         setTooltipMessage(randomTooltip);
-        setShowTooltip(true);
+        console.log("Tooltip message set:", randomTooltip);
       } else {
         const result = await predict(extracted);
         setPrediction(parseFloat(result[0]).toFixed(2));
@@ -89,7 +88,7 @@ const QuickView = () => {
   const handleExampleClick = async (input) => {
     setDescription(input);
     setIsLoading(true);
-    setShowTooltip(false);
+    setTooltipMessage("");
     try {
       const extracted = await extract(input);
       setExtractedData(extracted);
@@ -185,12 +184,12 @@ const QuickView = () => {
             Predict
           </button>
         )}
-        {showTooltip && <div className="tooltip">{tooltipMessage}</div>}
-        {!isLoading && prediction && (
+        {!isLoading && (prediction || tooltipMessage) && (
           <div className="prediction-result">
             <div className="dot"></div>
             <pre>
-              {prediction} kgCO2e/m<sup>2</sup>
+              {tooltipMessage ||
+                `${prediction} kgCO2e/m<sup>2</sup>${(<sup>2</sup>)}`}
             </pre>
           </div>
         )}
