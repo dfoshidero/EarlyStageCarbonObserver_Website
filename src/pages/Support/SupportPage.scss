@@ -59,7 +59,7 @@ overflow-y: scroll !important;
 }
 
 .about-card .MuiTypography-root {
-  font-size: 10px; /* Base font size */
+  font-size: 12px; /* Base font size */
   color: #2c3e50;
   font-family: "Poppins", sans-serif !important;
 }
@@ -69,11 +69,6 @@ h5 {
 }
 
 
-@media (min-width: 996px) and (min-height: 996px) {
-  .about-card .MuiTypography-root {
-    font-size: 12px;
-  }
-}
 @media (min-width: 1200px) and (min-height: 1200px) {
   .about-card .MuiTypography-root {
     font-size: 14px;
