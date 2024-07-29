@@ -51,17 +51,44 @@
 
 .background {
   position: absolute;
-  width: 100%;
+  z-index: 0;
   height: 100%;
-  z-index: 0;
+  width: 100%;
   pointer-events: none;
-  overflow: hidden;
-}
 
-.background-image {
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
+  .image1 {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 50%;
+    opacity: 0.3;
+  }
+
+  .image2 {
+    position: absolute;
+    top: 40%; // Fixed position
+    left: 0%; // Fixed position
+    width: 50%;
+    opacity: 0.1;
+  }
+
+  @media (min-width: 1200px) and (min-height: 1200px) {
+    .image1 {
+      position: absolute;
+      top: -2%;
+      left:50%;
+      width: 50%;
+      opacity: 0.3;
+    }
+
+    .image2 {
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      width: 50%;
+      opacity: 0.1;
+    }
+  }
 }
 
 .main-content {

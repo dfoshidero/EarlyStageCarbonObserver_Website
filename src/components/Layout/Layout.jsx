@@ -53,16 +53,11 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
     const images = [
       {
         src: require("../../assets/images/drawing1.png"),
-        style: { top: "-5%", left: "45%", height: "450px", opacity: "0.3" }, // Reduced height
+        className: "image1",
       },
       {
         src: require("../../assets/images/drawing3.png"),
-        style: {
-          top: "50%",
-          left: "0%",
-          height: "600px",
-          opacity: "0.1",
-        }, // Reduced height
+        className: "image2",
       },
     ];
 
@@ -75,8 +70,7 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
           key={index}
           src={image.src}
           alt={`background-${index}`}
-          className="background-image"
-          style={image.style}
+          className={`background-image ${image.className}`}
         />
       ));
     }

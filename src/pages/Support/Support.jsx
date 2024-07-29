@@ -43,7 +43,29 @@ const SupportPage = () => {
     },
     {
       title: "Tool Specifications",
-      content: ``,
+      content: `This tool utilizes a robust dataset of 150,000 synthetic datapoints generated from pre-existing carbon calculators. Synthetic data has been used as there currently exists too large of a gap in existing research and data to currently predict whole building carbon from that data. 
+                <br><br>
+                These calculators used to generate carbon impact employ carbon factors derived from the Inventory of Carbon and Energy (ICE) database and Environmental Product Declarations (EPDs).
+                <br><br>
+                The full pipeline is as follows:
+                <br><br>
+                <div style="text-align: center;">
+                Initial data entry in text form.
+                <br> &darr; <br>
+                Feature Extraction using NLP techniques, including SpaCy's en_core_web_trf model for Named Entity Recognition and the all-mpnet-base-v2 model from Sentence Transformers for semantic similarity.
+                <br> &darr; <br>
+                A Histogram-based Gradient Boosting (HistGradBoost) model processes the extracted features via regression.
+                <br> &darr; <br>
+                The model generates a final prediction based on the processed data.
+                <br><br>
+                </div>
+
+                The final step regression model is highly precise with an average accuracy of 95% across multiple tests.
+                <br><br>
+                You can download any material assumptions <a style="color: #39a265" href="assets/assumptions.xlsx">here</a>.
+                <br>
+                You can download any logical constraints <a style="color: #39a265" href="assets/constraints.xlsx">here</a>.`,
+
       position: { gridColumn: "1 / span 4", gridRow: "6 / span 8" },
     },
     {
