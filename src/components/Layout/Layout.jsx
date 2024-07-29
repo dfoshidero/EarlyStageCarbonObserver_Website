@@ -49,22 +49,56 @@ const Layout = ({ children, pageTitle, additionalInfo }) => {
     };
   }, []);
 
+  const renderBackgroundImages = () => {
+    const images = [
+      {
+        src: require("../../assets/images/drawing1.png"),
+        style: { top: "-5%", left: "45%", height: "450px", opacity: "0.3" }, // Reduced height
+      },
+      {
+        src: require("../../assets/images/drawing3.png"),
+        style: {
+          top: "50%",
+          left: "0%",
+          height: "600px",
+          opacity: "0.1",
+        }, // Reduced height
+      },
+    ];
+
+    // Condition to decide whether to render background images
+    const shouldRenderImages = pageTitle === "Home";
+
+    if (shouldRenderImages) {
+      return images.map((image, index) => (
+        <img
+          key={index}
+          src={image.src}
+          alt={`background-${index}`}
+          className="background-image"
+          style={image.style}
+        />
+      ));
+    }
+    return null; // Do not render images if the condition is not met
+  };
+
   return (
     <div
       className={`app ${isSidebarOpen ? "sidebar-open" : "sidebar-closed"} ${
         animateSidebar ? "animate-sidebar" : ""
       }`}
     >
-      <div className="background" />
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
       <div className="main-container">
-
         <div className="content-container">
+          <div className="background">{renderBackgroundImages()}</div>
           <div className="main-content">{children}</div>
           <footer className="footer">
             <small>
-              ECO is close, but not perfect. Inspect project details for accuracy.
+              ECO still has a lot of kinks. Inspect project details for
+              accuracy.
             </small>
           </footer>
         </div>

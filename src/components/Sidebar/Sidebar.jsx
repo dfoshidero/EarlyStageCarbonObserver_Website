@@ -3,7 +3,6 @@ import { useLocation, Link } from "react-router-dom";
 import {
   FaLinkedin,
   FaGithub,
-  FaInstagram,
   FaYoutube,
   FaExternalLinkAlt,
 } from "react-icons/fa";
@@ -76,15 +75,23 @@ const Sidebar = ({ isOpen, toggleSidebar, isOverlay }) => {
             >
               More
             </Link>
+            <Link
+              className={`sidebar-link ${isActive("/project")}`}
+              to="/project"
+            >
+              Full View
+            </Link>
           </div>
 
           <div className="sidebar-socials">
             <ul className="social-icons">
               <li className="icon-content">
                 <a
-                  href="https://linkedin.com/"
+                  href="https://www.linkedin.com/in/favourdo/"
                   aria-label="LinkedIn"
                   data-social="linkedin"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <FaLinkedin />
                   <div className="tooltip">LinkedIn</div>
@@ -93,9 +100,11 @@ const Sidebar = ({ isOpen, toggleSidebar, isOverlay }) => {
               </li>
               <li className="icon-content">
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/dfoshidero"
                   aria-label="GitHub"
                   data-social="github"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <FaGithub />
                   <div className="tooltip">GitHub</div>
@@ -104,20 +113,11 @@ const Sidebar = ({ isOpen, toggleSidebar, isOverlay }) => {
               </li>
               <li className="icon-content">
                 <a
-                  href="https://www.instagram.com/"
-                  aria-label="Instagram"
-                  data-social="instagram"
-                >
-                  <FaInstagram />
-                  <div className="tooltip">Instagram</div>
-                </a>
-                <div className="filled"></div>
-              </li>
-              <li className="icon-content">
-                <a
-                  href="https://youtube.com/"
+                  href="https://www.youtube.com/channel/UCo1pWemz1x8KK653FrgUKHw"
                   aria-label="Youtube"
                   data-social="youtube"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <FaYoutube />
                   <div className="tooltip">YouTube</div>

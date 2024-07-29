@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: top;
   padding-top: 15px;
+  z-index: 10;
 }
 
 .sidebar,
@@ -146,7 +147,7 @@
       margin: 0;
 
       .icon-content {
-        margin: 0 5px; /* Adjusted margin to fit within 80% width */
+        margin: 0 7.5px; /* Adjusted margin to fit within 80% width */
         position: relative;
 
         a {
@@ -155,8 +156,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 40px; /* Smaller size */
-          height: 40px; /* Smaller size */
+          width: 35px; /* Smaller size */
+          height: 35px; /* Smaller size */
           border-radius: 50%;
           color: #4d4d4d;
           background-color: #fff;
@@ -170,51 +171,8 @@
           svg {
             position: relative;
             z-index: 1;
-            width: 20px; /* Smaller icon size */
-            height: 20px; /* Smaller icon size */
-          }
-
-          .filled {
-            position: absolute;
-            top: auto;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background-color: #000;
-            transition: all 0.3s ease-in-out;
-          }
-
-          &[data-social="linkedin"] .filled,
-          &[data-social="linkedin"] ~ .tooltip {
-            background-color: #0274b3;
-          }
-
-          &[data-social="github"] .filled,
-          &[data-social="github"] ~ .tooltip {
-            background-color: #24262a;
-          }
-
-          &[data-social="instagram"] .filled,
-          &[data-social="instagram"] ~ .tooltip {
-            background: linear-gradient(
-              45deg,
-              #405de6,
-              #5b51db,
-              #b33ab4,
-              #c135b4,
-              #e1306c,
-              #fd1f1f
-            );
-          }
-
-          &[data-social="youtube"] .filled,
-          &[data-social="youtube"] ~ .tooltip {
-            background-color: #ff0000;
-          }
-
-          &:hover .filled {
-            height: 100%;
+            width: 17.5px; /* Smaller icon size */
+            height: 17.5px; /* Smaller icon size */
           }
         }
 

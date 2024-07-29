@@ -4,7 +4,7 @@
   width: 100%;
   overflow-y: auto;
   background-color: #ffffff;
-  position: relative; /* Add relative positioning */
+  position: relative;
 }
 
 .app.sidebar-open .main-container {
@@ -27,33 +27,13 @@
   transition: margin-left 0.3s ease-in-out;
 }
 
-
 .main-container {
   display: flex;
   flex: 1;
   flex-direction: column;
   width: 100%;
   padding-bottom: 5px;
-}
-
-.background {
-  position: absolute;
-  z-index: 0; /* Ensure it is behind the other content */
-  pointer-events: none; /* Allow clicks to pass through */
-}
-
-.sidebar {
-  width: 260px;
-  transition: transform 0.5s ease-in-out;
-}
-
-.header-area {
-  flex-shrink: 0;
-  width: 80%;
-  max-width: 1200px;
-  min-width: 1096px; /* Set the minimum width */
-  margin: 0 auto;
-  z-index: 1;
+  padding-top: 35px;
 }
 
 .content-container {
@@ -63,23 +43,43 @@
   flex-direction: column;
   width: 80%;
   max-width: 1200px;
-  min-width: 1096px; /* Set the minimum width */
+  min-width: 1096px;
   margin: 0 auto;
+  z-index: 1;
+  position: relative; /* Ensure it's positioned for background images */
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .main-content {
   flex-grow: 1;
   padding: 0 20px;
+  top: 0;
+  z-index: 1;
 }
 
 .footer {
-  position: fixed; /* Fix the footer to the bottom of the viewport */
-  bottom: 0; /* Align to the bottom */
-  left: 50%; /* Center align */
-  transform: translateX(-50%); /* Adjust for center alignment */
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-  width: 100%; /* Ensure it takes full width */
-  padding: 10px 0; /* Optional: Add padding for spacing */
+  width: 100%;
+  padding: 10px 0;
+  z-index: 0;
 }
 
 .footer small {
@@ -89,14 +89,14 @@
 }
 
 .app::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px;
 }
 
 .app::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2); /* Thumb color */
-  border-radius: 10px; /* Rounded corners for the thumb */
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 .app::-webkit-scrollbar-track {
-  background: transparent; /* Track color */
+  background: transparent;
 }

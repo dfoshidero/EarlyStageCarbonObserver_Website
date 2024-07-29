@@ -1,0 +1,70 @@
+.about-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+}
+
+.about-page > div {
+  height: 94%;
+  width: 94%;
+  min-height: 768px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  gap: 20px;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 0; 
+}
+
+
+.about-card {
+    
+  border-radius: 15px !important;
+  box-shadow: 10px 10px 34px #d1d1d1, -10px -10px 34px #ffffff !important;
+  z-index: 1 !important;
+  position: relative !important;
+transition: transform 0.2s ease-in-out !important;
+}
+
+.about-card::-webkit-scrollbar {
+  width: 4px;
+}
+
+.about-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.about-card::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 20px;
+}
+
+.about-card:hover {
+  transform: translateY(-3px);
+}
+
+.about-card .MuiTypography-root {
+  font-size: 10px; /* Base font size */
+  color: #2c3e50;
+  font-family: "Poppins", sans-serif !important;
+}
+
+h5 {
+  color: #39a265 !important;
+}
+
+@media (min-width: 992px) and (min-height: 992px) {
+  .about-card .MuiTypography-root {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1200px) and (min-height: 1200px) {
+  .about-card .MuiTypography-root {
+    font-size: 14px;
+  }
+}
+
+
