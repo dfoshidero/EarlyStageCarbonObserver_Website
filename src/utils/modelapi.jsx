@@ -3,7 +3,7 @@
 import axios from "axios";
 
 // Base URL for the API
-const BASE_URL = "http://35.177.205.83:80";
+const BASE_URL = "https://35.177.205.83";
 
 /**
  * Function to call the extract_predict API.
