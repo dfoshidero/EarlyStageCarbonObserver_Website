@@ -188,8 +188,11 @@ const QuickView = () => {
           <div className="prediction-result">
             <div className="dot"></div>
             <pre>
-              {tooltipMessage ||
-                `${prediction} kgCO2e/m<sup>2</sup>${(<sup>2</sup>)}`}
+              {tooltipMessage || (
+                <>
+                  {prediction} kgCO2e/m<sup>2</sup>
+                </>
+              )}
             </pre>
           </div>
         )}
