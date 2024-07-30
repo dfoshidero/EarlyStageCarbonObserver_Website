@@ -231,31 +231,67 @@ const Project = () => {
     tooltip.style.visibility = "hidden";
   };
 
-const handleExport = () => {
-  const replaceNullsWithNone = (value) => (value === "None" ? null : value);
+  const handleExport = () => {
+    const replaceNullsWithNone = (value) =>
+      value === null || value === "" ? "None" : value;
 
-  const dataToExport = [
-    { description: "description", value: replaceNullsWithNone(description) },
-    { description: "", value: "" }, // Empty row for space
-    { description: "prediction", value: replaceNullsWithNone(prediction) },
-    { description: "", value: "" }, // Empty row for space
-    ...Object.entries(buildingData).map(([feature, value]) => ({
-      description: feature,
-      value: replaceNullsWithNone(value),
-    })),
-  ];
+    // Extract all necessary features from options.json
+    const extractNecessaryFeatures = (options) => {
+      const features = [];
 
-  const csv = Papa.unparse(dataToExport);
+      const extractFromCategory = (category) => {
+        for (const subCategory in category) {
+          if (category[subCategory].name) {
+            features.push(category[subCategory].name);
+          }
+        }
+      };
 
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      extractFromCategory(options.materials.substructure);
+      extractFromCategory(options.materials.structure);
+      extractFromCategory(options.materials.external);
+      extractFromCategory(options.materials.internal);
 
-  // Generate a unique filename based on the current date and time
-  const timestamp = new Date().toISOString().replace(/[:.-]/g, "");
-  const filename = `ECO_Project${timestamp}.csv`;
+      features.push(options.sectors.name);
+      features.push(options.subSectors.name);
+      features.push(...options.numericalOptions);
 
-  saveAs(blob, filename);
-};
+      return features;
+    };
 
+    const necessaryFeatures = extractNecessaryFeatures(options);
+
+    // Append missing features with default values
+    const updatedBuildingData = { ...buildingData };
+    necessaryFeatures.forEach((feature) => {
+      if (!updatedBuildingData.hasOwnProperty(feature)) {
+        updatedBuildingData[feature] = "None"; // Default value for missing features
+      }
+    });
+
+    const dataToExport = [
+      { description: "description", value: replaceNullsWithNone(description) },
+      {
+        description: "prediction",
+        value: (prediction ? prediction.toString() : "0") + " kgCO2/m^2",
+      },
+      { description: "", value: "" }, // Empty row for space
+      ...Object.entries(updatedBuildingData).map(([feature, value]) => ({
+        description: feature,
+        value: replaceNullsWithNone(value),
+      })),
+    ];
+
+    const csv = Papa.unparse(dataToExport);
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+
+    // Generate a unique filename based on the current date and time
+    const timestamp = new Date().toISOString().replace(/[:.-]/g, "");
+    const filename = `ECO_Project${timestamp}.csv`;
+
+    saveAs(blob, filename);
+  };
 
 
   return (
