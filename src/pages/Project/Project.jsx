@@ -107,7 +107,9 @@ const Project = () => {
               To simply update the prediction, select "Adjust Prediction".
             </div>
           </p>
-          <button onClick={handleWarningConfirm}>Yes</button>
+          <button className="red-button" onClick={handleWarningConfirm}>
+            Yes
+          </button>
           <button onClick={handleWarningCancel}>No</button>
         </div>
       );
