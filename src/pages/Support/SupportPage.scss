@@ -18,20 +18,17 @@
   z-index: 0; 
 }
 
-
 .about-card {
-    
   border-radius: 15px !important;
   box-shadow: 10px 10px 34px #d1d1d1, -10px -10px 34px #ffffff !important;
   z-index: 1 !important;
   position: relative !important;
-transition: transform 0.2s ease-in-out !important;
-overflow-y: scroll !important;
+  transition: transform 0.2s ease-in-out !important;
+  overflow-y: scroll !important;
 }
 
 .about-card::-webkit-scrollbar {
   width: 5px;
-  
 }
 
 .about-card::-webkit-scrollbar-track {
@@ -41,9 +38,7 @@ overflow-y: scroll !important;
 .about-card::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 20px;
-  background-color: #39a265;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  transition: background-color 0.5s ease-in-out !important;
 }
 
 .about-card::-webkit-scrollbar-track-piece:end {
@@ -58,6 +53,10 @@ overflow-y: scroll !important;
   transform: translateY(-3px);
 }
 
+.about-card:hover::-webkit-scrollbar-thumb {
+  background-color: #39a265 !important;
+}
+
 .about-card .MuiTypography-root {
   font-size: 12px; /* Base font size */
   color: #2c3e50;
@@ -68,11 +67,8 @@ h5 {
   color: #39a265 !important;
 }
 
-
 @media (min-width: 1200px) and (min-height: 1200px) {
   .about-card .MuiTypography-root {
     font-size: 14px;
   }
 }
-
-

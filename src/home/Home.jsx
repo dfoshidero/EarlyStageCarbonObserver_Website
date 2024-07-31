@@ -106,8 +106,9 @@ const HomePage = () => {
           <p className="description-text">
             ECO Insight (Early-stage Carbon Observer) is a tool designed to
             bridge the gap between early-stage architectural design and
-            sustainable outcomes. ECO is trained on 150,000 synthetic
-            datapoints, and exists as an elegant means of providing realistic
+            sustainable outcomes. ECO is trained on 150,000 synthetically generated buildings,
+            covering a wide range of constructions and sizes,
+            and exists as an elegant means of providing realistic
             carbon grounding to early design concepts. Using machine learning
             and natural language feature extraction, ECO translates initial
             design descriptions into predictions of embodied carbon footprints.

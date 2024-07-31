@@ -71,18 +71,42 @@ const Project = () => {
     ) {
       openGenericModal(
         <div className="warning-modal">
-          <p>Are you sure? You will lose your changes.</p>
-          <button onClick={handleWarningConfirm}>Yes</button>
+          <p>
+            Are you sure?
+            <br />
+            <br />
+            This will refresh your updated choices, and you will lose
+            your changes.
+            <br />
+            <br />
+            <div className="confirm-tip">
+              To simply update the prediction, select "Adjust Prediction".
+            </div>
+          </p>
+          <button className="red-button" onClick={handleWarningConfirm}>
+            Yes
+          </button>
           <button onClick={handleWarningCancel}>No</button>
         </div>
       );
+
     } else if (
       Object.keys(initialExtractedData).length === 0 &&
       Object.keys(buildingData).length !== 0
     ) {
       openGenericModal(
         <div className="warning-modal">
-          <p>Are you sure? You will lose your current project.</p>
+          <p>
+            Are you sure?
+            <br />
+            <br />
+            This will refresh your project with new building features.
+            <br />
+            <br />
+            <div className="confirm-tip">
+              To simply update the prediction, select "Adjust Prediction".
+            </div>
+          </p>
           <button onClick={handleWarningConfirm}>Yes</button>
           <button onClick={handleWarningCancel}>No</button>
         </div>

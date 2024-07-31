@@ -22,24 +22,56 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: -10px;
 }
 
 .logo {
   width: 50px;
   height: 50px;
-  margin-right: 5px;
+  margin-right: 2px;
   margin-top: 2px;
+}
+
+.insight-instructions {
+  font-size: 14px;
+  color: #888;
+  opacity: 0.5;
+  margin-bottom: 20px;
+
+  .instruction-title-wrapper {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        color: #39a265;
+      }
+    }
+  }
+
+  .instruction-detail {
+    text-align: left;
+    margin-bottom: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease, opacity 0.5s ease;
+    opacity: 0;
+
+    &.open {
+      max-height: 300px; /* Adjust based on the content height */
+      opacity: 1;
+    }
+  }
 }
 
 .greeting {
   font-size: 24px;
   margin: 0;
-}
-
-.instruction {
-  font-size: 18px;
-  margin-bottom: 20px;
 }
 
 .textarea-wrapper {
@@ -48,8 +80,7 @@
   width: 100%;
   border-radius: 20px;
   background-color: #ffffff;
-  box-shadow:  20px 20px 34px #f0f0f0,
-             -20px -20px 34px #ffffff;
+  box-shadow: 20px 20px 34px #f0f0f0, -20px -20px 34px #ffffff;
 }
 
 .description-textarea {
@@ -96,7 +127,8 @@
 }
 
 @keyframes point {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
   50% {
@@ -105,7 +137,7 @@
 }
 
 .predict-button {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   padding: 10px 20px;
   border: none;
   border-radius: 15px;
@@ -149,7 +181,6 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-
 
 .details-cards {
   display: flex;
@@ -297,4 +328,7 @@
   }
 }
 
-
+.insight-header {
+  display: flex;
+  flex-direction: column;
+}

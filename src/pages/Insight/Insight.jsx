@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { extract, predict } from "../../utils/modelapi";
 import EcoAnimatedText from "../../components/AnimatedText/EcoAnimatedText";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "./InsightPage.scss";
 
 const QuickView = () => {
@@ -13,6 +15,7 @@ const QuickView = () => {
   const [randomExamples, setRandomExamples] = useState([]);
   const [tooltipMessage, setTooltipMessage] = useState("");
   const [extractedData, setExtractedData] = useState({});
+  const [isInstructionsOpen, setIsInstructionsOpen] = useState(true);
 
   const navigate = useNavigate();
 
@@ -23,6 +26,7 @@ const QuickView = () => {
     "Tell me about your cool eco-friendly idea! 🌟",
     "Thinking sustainable? ECO's heeere to help! 🫡",
     "Carbon time! 🚀",
+    "More detail = Moooore accuracy!"
   ];
 
   const tooltips = [
@@ -70,10 +74,19 @@ const QuickView = () => {
       ).length;
 
       if (validFieldsCount < 3) {
-        const randomTooltip =
-          tooltips[Math.floor(Math.random() * tooltips.length)];
-        setTooltipMessage(randomTooltip);
-        console.log("Tooltip message set:", randomTooltip);
+
+        const result = await predict(extracted);
+
+        if (result >= 120 && result <= 180) {
+          const randomTooltip =
+            tooltips[Math.floor(Math.random() * tooltips.length)];
+          setTooltipMessage(randomTooltip);
+          console.log("Tooltip message set:", randomTooltip);
+        }
+        else {
+          setPrediction(parseFloat(result[0]).toFixed(2));
+        }
+        
       } else {
         const result = await predict(extracted);
         setPrediction(parseFloat(result[0]).toFixed(2));
@@ -122,6 +135,7 @@ const QuickView = () => {
 
   const handleFocus = () => {
     setIsFocused(true);
+    setIsInstructionsOpen(false); // Close instructions when focused
     setRandomExamples(getRandomExamples(exampleInputs, 3));
   };
 
@@ -138,13 +152,50 @@ const QuickView = () => {
   return (
     <div className="quick-view">
       <div className="content-wrapper">
-        <div className="greeting-wrapper">
-          <img
-            src="/assets/images/logo-head-nbg.svg"
-            alt="Logo"
-            className="logo"
-          />
-          <h1 className="greeting">{greeting}</h1>
+        <div className="insight-header">
+          <div className="greeting-wrapper">
+            <img
+              src="/assets/images/logo-head-nbg.svg"
+              alt="Logo"
+              className="logo"
+            />
+            <h1 className="greeting">{greeting}</h1>
+          </div>
+          <div className="insight-instructions">
+            <div className="instruction-title-wrapper">
+              <p className="instruction-title">Instructions</p>
+              <button
+                className="toggle-button"
+                onClick={() => setIsInstructionsOpen(!isInstructionsOpen)}
+              >
+                <FontAwesomeIcon
+                  icon={isInstructionsOpen ? faChevronUp : faChevronDown}
+                />
+              </button>
+            </div>
+            <div
+              className={`instruction-detail ${
+                isInstructionsOpen ? "open" : ""
+              }`}
+            >
+              ECO is not a chatbot, and will not engage in conversation with
+              you. It is a text to prediction pipeline.
+              <br />
+              <br />
+              ECO works by extracting building features that are found to
+              typically affect carbon. This includes materials, and building
+              specifications such as number of floors, GIA, etc.
+              <br />
+              <br />
+              ECO will not guess building features that have not been mentioned.
+              e.g. building foundations will not be assumed if your description
+              is “glass facade”.
+              <br />
+              <br />
+              Predictions are made based on feature combinations. There is no
+              further calculation.
+            </div>
+          </div>
         </div>
         <div className="textarea-wrapper">
           {!isFocused && description === "" && (
