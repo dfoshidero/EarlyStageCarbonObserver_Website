@@ -6,9 +6,9 @@ const SupportPage = () => {
   const sections = [
     {
       title: "Project Overview",
-      content: `ECO Insight - an Early-stage Carbon Impact Observer for Intelligent Sustainability Forecasting in Buildings.<br><br>Developed by Daniel Favour O. Oshidero as part of an MSc in Computer Science at The University of Bath (2023/24). 
+      content: `ECO - an Early-stage Carbon Impact Observer for Intelligent Sustainability Forecasting in Buildings.<br><br>Developed by Daniel Favour O. Oshidero as part of an MSc in Computer Science at The University of Bath (2023/24). 
                 <br><br> 
-                ECO Insight aims to close the gap in sustainable architectural integrations by introducing an intelligent model capable of translating early-stage design descriptions into precise estimates of material masses and embodied carbon footprints.`,
+                ECO aims to close the gap in sustainable architectural integrations by introducing an intelligent model capable of translating early-stage design descriptions into precise estimates of material masses and embodied carbon footprints.`,
       position: { gridColumn: "1 / span 2", gridRow: "1 / span 5" },
     },
     {
@@ -20,7 +20,7 @@ const SupportPage = () => {
       title: "Abstract",
       content: `An increasing need for carbon awareness and sustainable architecture has prompted the development of tools that can predict and mitigate the environmental impact of new constructions from the earliest stages of design.
                 <br><br>
-                ECO Insight is designed to integrate early-stage impact assessments into architectural processes, providing architects with immediate feedback on the carbon implications of their design choices, fostering more sustainable design practices from the outset.`,
+                ECO is designed to integrate early-stage impact assessments into architectural processes, providing architects with immediate feedback on the carbon implications of their design choices, fostering more sustainable design practices from the outset.`,
       position: { gridColumn: "3 / span 4", gridRow: "3 / span 3" },
     },
     {
@@ -71,7 +71,7 @@ const SupportPage = () => {
     {
       title: "Disclaimers",
       content: `This tool is made as a Proof of Concept. It can be used by students, architects, and designers alike, but with caution. 
-      The estimates and assessments provided by ECO Insight are intended only for preliminary analysis and should not be relied upon as the final source of information for critical decision-making. 
+      The estimates and assessments provided by ECO are intended only for preliminary analysis and should not be relied upon as the final source of information for critical decision-making. 
       Users are encouraged to validate results with additional tools and professional expertise.
       <br><br>
       <div style="color: #39a265">Open issues:</div>

@@ -104,7 +104,7 @@ const HomePage = () => {
         <div className="project-description">
           <h3>About</h3>
           <p className="description-text">
-            ECO Insight (Early-stage Carbon Observer) is a tool designed to
+            ECO (Early-stage Carbon Observer) is a tool designed to
             bridge the gap between early-stage architectural design and
             sustainable outcomes. ECO is trained on 150,000 synthetically generated buildings,
             covering a wide range of constructions and sizes,
