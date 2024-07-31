@@ -76,7 +76,7 @@ const SupportPage = () => {
       <br><br>
       <div style="color: #39a265">Open issues:</div>
       <br>
-      - Currently, the algorithm tends to favour larger buildings. Smaller buildings tend to be over-engineered. This can be resolved with longer descriptions.`,
+      - Currently, the algorithm tends to favour larger buildings. Smaller buildings may be over-engineered. This can be resolved with longer descriptions.`,
       position: { gridColumn: "1 / span 6", gridRow: "14 / span 2" },
     },
   ];
