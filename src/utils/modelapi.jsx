@@ -3,7 +3,7 @@
 import axios from "axios";
 
 // Base URL for the API
-const BASE_URL = "https://e4ihifenad.execute-api.eu-west-2.amazonaws.com/prod";
+const BASE_URL = "https://dfoshidero-eco-carbonfromtext.hf.space";
 
 /**
  * Function to call the extract_predict API.
